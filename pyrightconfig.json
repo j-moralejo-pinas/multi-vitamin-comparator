@@ -1,0 +1,13 @@
+{
+  "typeCheckingMode": "basic",
+  "include": [
+    "src",
+    "tests"
+  ],
+  "exclude": [],
+  "extraPaths": [
+    "src"
+  ],
+  "venvPath": ".",
+  "venv": ".venv"
+}
