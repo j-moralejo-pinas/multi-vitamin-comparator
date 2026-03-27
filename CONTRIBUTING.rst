@@ -2,7 +2,7 @@
 Contributing
 ============
 
-We welcome contributions to the package-name project! This guide will help you get started with contributing to the project.
+We welcome contributions to the multi-vitamin-comparator project! This guide will help you get started with contributing to the project.
 
 📋 Table of Contents
 ===================
@@ -44,7 +44,89 @@ Development Environment Setup
 
 To set up the development environment, refer to the `Installation <installation>`_ section.
 
-<dev_workflow>
+Development Workflow
+====================
+
+Pulling from Main
+-----------------
+
+1. Make sure you're on the main branch and it's up to date:
+
+.. code-block:: bash
+
+    git checkout main
+    git pull
+
+Making Changes
+--------------
+
+1. Make your changes in the appropriate files
+2. Add tests for new functionality
+3. Update documentation if needed
+4. Run the test suite to ensure everything works
+
+Running During Development
+--------------------------
+
+When running code during development, use:
+
+.. code-block:: bash
+
+    PYTHONPATH='/path/to/multi-vitamin-comparator/src' python your_script.py
+
+Branching Model and Workflow
+============================
+
+This project follows Trunk-Based Development to maintain code quality and enable collaborative development.
+
+Branch Types
+------------
+
+main
+~~~~~~~~
+- The production-ready branch
+- Contains stable, tested code
+- Only accepts merges from ``hotfix`` branches
+- Tagged with a new version number on each release
+
+hotfix/\*
+~~~~~~~~~
+- Created for urgent production fixes
+- Branched from a tagged commit in ``main`` or a ``hotfix`` branch
+- Naming convention: ``hotfix/critical-issue-description``
+- Merged back into ``main`` via pull request
+- Tagged with a new version number the previous commit before merging
+
+Merge Workflows
+---------------
+
+Main Development Flow
+~~~~~~~~~~~~~~~~~~~~~
+
+1. Pull the latest changes from ``main``:
+.. code-block:: bash
+
+    git checkout main
+    git pull
+
+2. Push your changes to main:
+.. code-block:: bash
+
+    git checkout main
+    git push
+
+Hotfix → Main
+~~~~~~~~~~~~~
+
+1. Create your branch from a tagged commit from ``main`` or an existing ``hotfix`` branch:
+
+.. code-block:: bash
+
+    git checkout -b hotfix/your-branch
+
+2. Create a pull request from ``hotfix/your-branch`` to ``main``
+3. Use **merge commit** to keep track of all changes
+4. Do not delete the ``hotfix/your-branch`` after merging to keep since that branch will contain the patched release
 
 Code Standards
 ==============
@@ -62,7 +144,7 @@ We use **pyupgrade** to automatically upgrade Python syntax to use modern featur
     pyupgrade --py312-plus src/**/*.py
 
     # Upgrade specific files
-    pyupgrade --py312-plus src/package_name/specific_module.py
+    pyupgrade --py312-plus src/multi_vitamin_comparator/specific_module.py
 
     # Upgrade all Python files recursively
     find src -name "*.py" -exec pyupgrade --py312-plus {} +
@@ -88,7 +170,7 @@ We use **docformatter** to automatically format docstrings:
     docformatter --check src/**/*.py
 
     # Format specific files
-    docformatter --in-place src/package_name/specific_module.py
+    docformatter --in-place src/multi_vitamin_comparator/specific_module.py
 
 Docformatter ensures:
 
@@ -124,7 +206,7 @@ We use **pydoclint** to ensure docstring quality and consistency:
     pydoclint src/
 
     # Check specific files
-    pydoclint src/package_name/specific_module.py
+    pydoclint src/multi_vitamin_comparator/specific_module.py
 
 Pydoclint helps ensure that:
 
@@ -144,7 +226,7 @@ We use **Pyright** for static type checking:
     pyright
 
     # Check specific files
-    pyright src/package_name/specific_module.py
+    pyright src/multi_vitamin_comparator/specific_module.py
 
 Pyright is configured in ``pyrightconfig.json`` and helps catch type-related errors before runtime.
 
@@ -195,7 +277,7 @@ Example of well-formatted code:
     import numpy as np
     import pandas as pd
 
-    from package_name import fun
+    from multi_vitamin_comparator import fun
 
     def calculate_statistics(data: list[float]) -> dict[str, float]:
         """Calculate basic statistics for a list of numbers.
@@ -236,7 +318,7 @@ Running Tests
     pytest --cov=src
 
     # Run specific test file
-    pytest tests/package_name/test_specific_module.py
+    pytest tests/multi_vitamin_comparator/test_specific_module.py
 
     # Run tests matching a pattern
     pytest -k "test_pattern"
@@ -259,7 +341,7 @@ Example test:
     import pytest
     import numpy as np
 
-    from package_name import fun
+    from multi_vitamin_comparator import fun
 
 
     class TestFeature:
@@ -301,14 +383,14 @@ Understanding the codebase structure will help you contribute effectively:
 
 .. code-block::
 
-    package-name/
+    multi-vitamin-comparator/
     ├── .direnv/                    # Nix environment
     ├── .github/workflows/          # GitHub Actions workflows
     ├── .venv/                      # PythonVirtual environment
     ├── .vscode/                    # VS Code settings
     ├── docs/                       # Documentation
     ├── src/                        # Source code
-    │   ├── package_name/           # Main package
+    │   ├── multi_vitamin_comparator/           # Main package
     │   └── other_package/          # Additional package
     ├── tests/                      # Test suite
     ├── .envrc                      # direnv configuration
@@ -338,7 +420,7 @@ Code of Conduct
 
 All contributors are expected to adhere to our `Code of Conduct <CODE_OF_CONDUCT.rst>`_.
 
-Thank you for contributing to the package-name project! 🚀
+Thank you for contributing to the multi-vitamin-comparator project! 🚀
 
 Issue Reporting
 ===============
@@ -359,9 +441,9 @@ Use this template for any functional issues, including performance problems, cra
 
     ## Environment
     - **OS**: [e.g., Ubuntu 22.04, Windows 11, macOS 13.0]
-    - **Python Version**: [e.g., 3.x.y]
+    - **Python Version**: [e.g., 3.13.y]
     - **Project Version**: [e.g., 1.0.0 or commit hash if using dev]
-    - **Conda Environment**: [e.g., package-name]
+    - **Conda Environment**: [e.g., multi-vitamin-comparator]
     - **Hardware** (for performance issues): [CPU, RAM, relevant specs]
 
     ## Steps to Reproduce

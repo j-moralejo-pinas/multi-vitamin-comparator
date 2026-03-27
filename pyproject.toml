@@ -3,8 +3,8 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "package-name"
-description = "A boilerplate for Python projects with CI/CD setup"
+name = "multi-vitamin-comparator"
+description = "Small program to compare a list of milti vitamin products to a target product"
 dynamic = ["version"]
 authors = [
     { name = "Javier Moralejo Piñas", email = "j.moralejo.pinas@gmail.com" },
@@ -17,17 +17,17 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-requires-python = "<3.y,>=3.x"
+requires-python = ">=3.13"
 dependencies = [
     # Add your project dependencies here
 ]
 
 [project.urls]
-Homepage = "https://github.com/j-moralejo-pinas/package-name"
-Changelog = "https://package-name.readthedocs.io/en/latest/CHANGELOG.html"
-Source = "https://github.com/j-moralejo-pinas/package-name"
-Documentation = "https://package-name.readthedocs.io/"
-Tracker = "https://github.com/j-moralejo-pinas/package-name/issues"
+Homepage = "https://github.com/j-moralejo-pinas/multi-vitamin-comparator"
+Changelog = "https://multi-vitamin-comparator.readthedocs.io/en/latest/CHANGELOG.html"
+Source = "https://github.com/j-moralejo-pinas/multi-vitamin-comparator"
+Documentation = "https://multi-vitamin-comparator.readthedocs.io/"
+Tracker = "https://github.com/j-moralejo-pinas/multi-vitamin-comparator/issues"
 
 [tool.hatch.version]
 source = "vcs"
@@ -36,7 +36,7 @@ source = "vcs"
 include = []
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/package_name"]
+packages = ["src/multi_vitamin_comparator"]
 exclude = ["/tests"]
 
 [project.optional-dependencies]
@@ -102,7 +102,7 @@ convention = "numpy"
     "PLR2004", # Magic value used in comparison
     "INP001",  # File is part of an implicit namespace package.
 ]
-"src/package_name/_version.py" = ["ALL"]
+"src/multi_vitamin_comparator/_version.py" = ["ALL"]
 
 [tool.pydoclint]
 style = 'numpy'
@@ -122,4 +122,4 @@ paths = ["src", "tests"]
 skips = ["B101"]
 
 [tool.cicd]
-workflow = ""
+workflow = "trunk"

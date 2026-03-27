@@ -1,7 +1,7 @@
 Installation Guide
 ==================
 
-This guide provides step-by-step instructions for installing and setting up the package-name project. Choose the installation section that best fits your needs.
+This guide provides step-by-step instructions for installing and setting up the multi-vitamin-comparator project. Choose the installation section that best fits your needs.
 
 .. contents:: Table of Contents
     :local:
@@ -12,7 +12,7 @@ Prerequisites
 
 Before installing the project, ensure you have the following requirements:
 
-* **Python 3.x** (required for this project)
+* **Python 3.13** (required for this project)
 * **Git** for cloning the repository
 * **Internet connection** for downloading dependencies
 
@@ -28,16 +28,16 @@ Quick Start
 
 .. code-block::
 
-    git clone https://github.com/j-moralejo-pinas/package-name.git
-    cd package-name
+    git clone https://github.com/j-moralejo-pinas/multi-vitamin-comparator.git
+    cd multi-vitamin-comparator
 
 2. **Set Up Virtual Environment (Recommended)**: While not mandatory, using a virtual environment is highly recommended to avoid dependency conflicts
 
 .. code-block::
 
     # Using conda (recommended)
-    conda create -n package-name-env python=3.x
-    conda activate package-name-env
+    conda create -n multi-vitamin-comparator-env python=3.13
+    conda activate multi-vitamin-comparator-env
 
     # OR using venv
     python -m venv venv
@@ -56,7 +56,7 @@ Quick Start
 
 .. code-block::
 
-    python -c "import package_name; print('Installation successful!')"
+    python -c "import multi_vitamin_comparator; print('Installation successful!')"
 
 Docker Installation (Alternative)
 ---------------------------------
@@ -76,8 +76,8 @@ Docker Setup
 
 .. code-block::
 
-    git clone https://github.com/j-moralejo-pinas/package-name.git
-    cd package-name
+    git clone https://github.com/j-moralejo-pinas/multi-vitamin-comparator.git
+    cd multi-vitamin-comparator
 
 2. **Build the Docker Image**: Build the application using Docker Compose. This will create a Docker image with all necessary dependencies pre-installed
 
@@ -89,7 +89,7 @@ Docker Setup
 
 .. code-block::
 
-    docker-compose run --rm app python -c "import package_name; print('Docker installation successful!')"
+    docker-compose run --rm app python -c "import multi_vitamin_comparator; print('Docker installation successful!')"
 
 **Docker Benefits**
 
@@ -117,7 +117,7 @@ To set up the development environment, run:
 
 .. code-block:: bash
 
-    git clone https://github.com/j-moralejo-pinas/package-name.git && cd package-name && chmod +x setup-dev.sh && ./setup-dev.sh
+    git clone https://github.com/j-moralejo-pinas/multi-vitamin-comparator.git && cd multi-vitamin-comparator && chmod +x setup-dev.sh && ./setup-dev.sh
 
 This will:
 
@@ -148,7 +148,7 @@ If you have issues with virtual environments, try
 
     # For conda environments
     conda info --envs  # List all environments
-    conda activate package-name-dev  # Activate the environment
+    conda activate multi-vitamin-comparator-dev  # Activate the environment
 
     # For venv environments
     which python  # Check which Python you're using
@@ -170,7 +170,7 @@ If Docker commands fail
 
 **Getting Help**
 
-* Check the project's GitHub issues: https://github.com/j-moralejo-pinas/package-name/issues
+* Check the project's GitHub issues: https://github.com/j-moralejo-pinas/multi-vitamin-comparator/issues
 * Review the documentation for detailed usage examples
 * Ensure all dependencies are correctly installed
 

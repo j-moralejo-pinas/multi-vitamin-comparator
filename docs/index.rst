@@ -1,8 +1,8 @@
 =============
-package-name
+multi-vitamin-comparator
 =============
 
-This is the documentation of **package-name project**.
+This is the documentation of **multi-vitamin-comparator project**.
 
 Contents
 ========
