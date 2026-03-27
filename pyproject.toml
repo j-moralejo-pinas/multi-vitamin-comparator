@@ -18,9 +18,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 requires-python = ">=3.13"
-dependencies = [
-    # Add your project dependencies here
-]
+dependencies = ["openai", "pydantic"]
 
 [project.urls]
 Homepage = "https://github.com/j-moralejo-pinas/multi-vitamin-comparator"
@@ -69,7 +67,7 @@ omit = []
 [tool.ruff]
 fix = true
 unsafe-fixes = true
-line-length = 100
+line-length = 88
 
 [tool.ruff.format]
 docstring-code-format = true

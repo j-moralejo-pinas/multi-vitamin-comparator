@@ -211,3 +211,6 @@ __marimo__/
 
 # Version file
 **/_version.py
+
+outputs/
+inputs/
