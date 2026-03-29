@@ -58,46 +58,6 @@ Quick Start
 
     python -c "import multi_vitamin_comparator; print('Installation successful!')"
 
-Docker Installation (Alternative)
----------------------------------
-
-If you prefer to use Docker instead of a local Python installation, you can run the project in a containerized environment.
-
-Prerequisites for Docker
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-* **Docker** and **Docker Compose** installed on your system
-* **Git** for cloning the repository
-
-Docker Setup
-~~~~~~~~~~~~
-
-1. **Clone the Repository**
-
-.. code-block::
-
-    git clone https://github.com/j-moralejo-pinas/multi-vitamin-comparator.git
-    cd multi-vitamin-comparator
-
-2. **Build the Docker Image**: Build the application using Docker Compose. This will create a Docker image with all necessary dependencies pre-installed
-
-.. code-block::
-
-    docker-compose build
-
-3. **Verify Docker Installation**: Test that the Docker setup works
-
-.. code-block::
-
-    docker-compose run --rm app python -c "import multi_vitamin_comparator; print('Docker installation successful!')"
-
-**Docker Benefits**
-
-* **Isolated environment** - No conflicts with your system Python
-* **Consistent setup** - Same environment across different machines
-* **Easy cleanup** - Remove containers when done
-* **Pre-configured dependencies** - All system libraries included
-
 Developer Installation
 ======================
 
@@ -153,20 +113,6 @@ If you have issues with virtual environments, try
     # For venv environments
     which python  # Check which Python you're using
     pip list  # Check installed packages
-
-**Docker Issues**
-
-If Docker commands fail
-
-.. code-block::
-
-    # Check Docker is running
-    docker --version
-    docker-compose --version
-
-    # Check Docker permissions (Linux)
-    sudo usermod -aG docker $USER
-    # Then log out and back in
 
 **Getting Help**
 

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "multi-vitamin-comparator"
-description = "Small program to compare a list of milti vitamin products to a target product"
+description = "Small program to compare a list of multi vitamin products to a target product"
 dynamic = ["version"]
 authors = [
     { name = "Javier Moralejo Piñas", email = "j.moralejo.pinas@gmail.com" },
@@ -71,7 +71,7 @@ line-length = 88
 
 [tool.ruff.format]
 docstring-code-format = true
-docstring-code-line-length = 100
+docstring-code-line-length = 88
 
 [tool.ruff.lint]
 ignore = [
@@ -89,7 +89,7 @@ select = ["ALL"]
 exclude = ["docs/*"] # "tests/*"
 
 [tool.ruff.lint.pycodestyle]
-max-doc-length = 100
+max-doc-length = 88
 
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
@@ -107,8 +107,8 @@ style = 'numpy'
 
 [tool.docformatter]
 style = 'numpy'
-wrap-summaries = 100
-wrap-descriptions = 100
+wrap-summaries = 88
+wrap-descriptions = 88
 pre-summary-newline = true
 close-quotes-on-newline = true
 

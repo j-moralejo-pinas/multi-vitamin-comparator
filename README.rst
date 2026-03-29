@@ -1,6 +1,6 @@
-============
+========================
 multi-vitamin-comparator
-============
+========================
 
 .. image:: https://img.shields.io/badge/python-3.13+-blue.svg
     :target: https://www.python.org/downloads/
@@ -9,65 +9,58 @@ multi-vitamin-comparator
 .. image:: https://img.shields.io/badge/license-MIT-green.svg
     :alt: License
 
-A comprehensive boilerplate for Python projects with modern CI/CD setup, testing, documentation, and development tools.
+Project Description
+-------------------
 
-🎯 Project Description
----------------------
+Compare multivitamin supplements against a target product. Given a folder of supplement labels (images or text files), it extracts ingredients via the OpenAI API and ranks candidates by how closely they match the target.
 
-This project template provides a solid foundation for Python development with pre-configured:
+Key Features
+------------
 
-Development Environment
-~~~~~~~~~~~~~~~~~~~~~~~
-
-- **Modern Python Setup**: Python 3.13+ with virtual environment configuration
-- **Code Quality Tools**: Pre-commit hooks, linting with Ruff, formatting with Black
-- **Testing Framework**: Pytest with coverage reporting and configuration
-- **Documentation**: Sphinx-based documentation with automatic API generation
-
-CI/CD Infrastructure
-~~~~~~~~~~~~~~~~~~~~
-
-- **GitHub Actions**: Automated testing, linting, and deployment workflows
-- **Docker Support**: Containerized development and deployment environment
-- **Code Quality**: Automated code quality checks and test coverage reporting
-- **Release Management**: Automated versioning and release processes
-
-Project Structure
-~~~~~~~~~~~~~~~~~
-
-- **Modular Architecture**: Clean separation of concerns with standard Python package structure
-- **Configuration Management**: Centralized configuration with pyproject.toml
-- **Documentation**: Complete documentation setup with Sphinx and reStructuredText
-- **Testing Setup**: Comprehensive testing configuration with pytest and coverage
-
-🚀 Key Features
---------------
-
-Developer Experience
-~~~~~~~~~~~~~~~~~~~~
-
-- **Pre-commit Hooks**: Automatic code formatting and quality checks
-- **Modern Tooling**: Latest Python development tools and best practices
-- **IDE Configuration**: VS Code settings and task configurations included
-- **Environment Management**: Conda and pip-tools support for dependency management
+- **Flexible input**: accepts plain text, markdown, and images (PNG, JPG, WEBP) as supplement label sources.
+- **Structured extraction**: uses the OpenAI API to parse ingredient names, chemical forms, quantities, units, and % daily values into a normalised JSON schema.
+- **Deterministic normalization**: ingredient names are mapped to a controlled canonical ontology locally; the API is only called for unresolved names.
+- **Asymmetric scoring**: ranks candidates using a logarithmic distance metric with separate configurable penalties for missing, underdosed, overdosed, and extra ingredients.
+- **High-risk aware**: applies stricter penalties for fat-soluble vitamins (e.g. Vitamin A, Vitamin E) when amounts are unknown or excessive.
 
 Quick Start
 -----------
-0. Fork this repository to your GitHub account if you haven't already, and use it to create a new repository as the base for your project.
-1. Create an environment in github called `main` and set the following features:
-    - Required reviewers: my-name
-    - Allow admins to bypass: disabled
-    - Deployment branches and tags: main
-    - Environment secrets:
-        - ``ADMIN_TOKEN``: Administration and actions (read and write)
-2. Set the following secrets in your repository settings:
-    - ``PAT_TOKEN``: Content and Pull Requests (read and write)
-    - ``PYPI_API_TOKEN``: Your PyPI token
-    - ``TEST_PYPI_API_TOKEN``: Your Test PyPI token
-3. Modify the `.github/workflows/configure_repo.yml` file to set up the minimum (an maximum) python versions, and a list of topics
-4. Run the `configure_repo` workflow manually from the Actions tab
-5. Set up read the docs to build documentation for this project
-6. Clone your repository locally
+
+1. Install and set your API key:
+
+.. code-block:: bash
+
+    pip install multi-vitamin-comparator
+    export OPENAI_API_KEY=sk-...
+
+2. Place your supplement label files (images or ``.txt``/``.md`` files) into an input folder, one file per product.
+
+3. Extract ingredients from all labels:
+
+.. code-block:: bash
+
+    python -m multi_vitamin_comparator.extract_multivitamin_ingredients \
+        ./inputs ./outputs
+
+    This produces one JSON per file and an ``outputs/all_results.json`` aggregate.
+
+4. Do the same for your target product, into a separate folder:
+
+.. code-block:: bash
+
+    python -m multi_vitamin_comparator.extract_multivitamin_ingredients \
+        ./target_input ./target_output
+
+5. Rank candidates against the target:
+
+.. code-block:: bash
+
+    python -m multi_vitamin_comparator.compare_supplements \
+        ./target_output/<target>.json \
+        ./outputs/all_results.json \
+        ./outputs/ranked_output.json
+
+    Replace ``<target>.json`` with the JSON file generated for your target product.
 
 📚 Documentation
 ---------------
